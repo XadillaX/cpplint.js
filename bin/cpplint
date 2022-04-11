@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+'use strict';
+
+const cpplint = require('../lib/cpplint');
+
+(async () => {
+  let ret;
+  try {
+    ret = await cpplint.run(process.argv.slice(2));
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+
+  const { code, output } = ret;
+
+  for (const { type, data } of output) {
+    if (type === 'stdout') {
+      process.stdout.write(data);
+    } else if (type === 'stderr') {
+      process.stderr.write(data);
+    }
+  }
+
+  process.exit(code);
+})();

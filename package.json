@@ -1,0 +1,41 @@
+{
+  "name": "cpplint.js",
+  "version": "1.0.0",
+  "description": "CPPLINT wrapper for Node.js.",
+  "bin": {
+    "cpplint": "./bin/cpplint"
+  },
+  "files": [
+    "bin/cpplint",
+    "CPPLINT/cpplint.py",
+    "lib/cpplint.js",
+    "lib/python_interpreter.js"
+  ],
+  "main": "lib/cpplint.js",
+  "scripts": {
+    "ci": "npm run lint && npm run cov",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "postinstall": "rm -f package-lock.json",
+    "test": "egg-bin test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XadillaX/cpplint.js.git"
+  },
+  "keywords": [
+    "CPPLINT"
+  ],
+  "author": "XadillaX <i@2333.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XadillaX/cpplint.js/issues"
+  },
+  "homepage": "https://github.com/XadillaX/cpplint.js#readme",
+  "devDependencies": {
+    "egg-bin": "^4.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-egg": "^11.0.1",
+    "mm": "^3.2.0"
+  }
+}
