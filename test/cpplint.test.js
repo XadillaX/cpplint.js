@@ -33,22 +33,22 @@ async function testCase(group, def) {
     }
   }
 
-  const ret = await cpplint.run(realArgs, { cwd: path.dirname(defFilename) });
+  const ret = cpplint.run(realArgs, { cwd: path.dirname(defFilename) });
   let stdout = '';
   let stderr = '';
   let mixedStd = '';
 
-  for (const { type, data } of ret.output) {
-    if (type === 'stdout') {
-      stdout += data.toString();
-    } else if (type === 'stderr') {
-      stderr += data.toString();
-    }
+  ret.on('stdout', data => {
+    stdout += data;
+    mixedStd += data;
+  });
+  ret.on('stderr', data => {
+    stderr += data;
+    mixedStd += data;
+  });
+  const code = await ret.finished();
 
-    mixedStd += data.toString();
-  }
-
-  assert.strictEqual(ret.code, expectedStatus, mixedStd);
+  assert.strictEqual(code, expectedStatus, mixedStd);
   const stdoutSplitted = stdout.split('\n');
   assert.strictEqual(stdoutSplitted.length, stdoutLines);
   for (let i = 0; i < stdoutLines; i++) {

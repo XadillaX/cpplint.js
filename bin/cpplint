@@ -6,21 +6,20 @@ const cpplint = require('../lib/cpplint');
 (async () => {
   let ret;
   try {
-    ret = await cpplint.run(process.argv.slice(2));
+    ret = cpplint.run(process.argv.slice(2));
   } catch (e) {
     console.error(e);
     process.exit(1);
   }
 
-  const { code, output } = ret;
+  ret.on('stdout', data => process.stdout.write(data));
+  ret.on('stderr', data => process.stderr.write(data));
 
-  for (const { type, data } of output) {
-    if (type === 'stdout') {
-      process.stdout.write(data);
-    } else if (type === 'stderr') {
-      process.stderr.write(data);
-    }
+  try {
+    const code = await ret.finished();
+    process.exit(code);
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
   }
-
-  process.exit(code);
 })();
