@@ -166,6 +166,9 @@ class NoRepoSignatureTests(TemporaryFolderClassSetup, unittest.TestCase):
     def testSillySample(self):
         self.checkAllInFolder('./samples/silly-sample', 4)
 
+    def testCfgFileSample(self):
+        self.checkAllInFolder('./samples/cfg-file', 1)
+
     def testBoostSample(self):
         self.checkAllInFolder('./samples/boost-sample', 4)
 

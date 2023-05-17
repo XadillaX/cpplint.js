@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.6.1 (2022-08-20)
+-----
+
+* Fix #195 Fix post increment/decrement operator causing a false positive.
+* Fix #202 .hh files should not be considered sytem headers
+* Fix #207 Python2 incompatibility for loading CPPLINT.cfg file
+* Fix #184 NOLINT(clang-analyzer) comments should not cause warnings
+
 1.6.0 (2022-02-19)
 -----
 

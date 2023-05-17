@@ -31,7 +31,7 @@ struct X {
     string s;
     char ch2;
 
-    X& operator=(const X& a);  // NOLINT(clang-analyzer-valist.Uninitialized)
+    X& operator=(const X& a);
     X(const X&);
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "cpplint.js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "CPPLINT wrapper for Node.js.",
   "bin": {
     "cpplint": "./bin/cpplint"
