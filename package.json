@@ -36,7 +36,7 @@
     "egg-bin": "^6.4.0",
     "eslint": "^8.13.0",
     "eslint-config-egg": "^11.0.1",
-    "mm": "^3.2.1"
+    "mm": "^3.3.0"
   },
   "dependencies": {
     "detect-python-interpreter": "^1.0.0"
