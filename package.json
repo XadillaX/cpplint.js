@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/XadillaX/cpplint.js#readme",
   "devDependencies": {
-    "egg-bin": "^6.4.0",
+    "egg-bin": "^6.10.0",
     "eslint": "^8.13.0",
     "eslint-config-egg": "^11.0.1",
     "mm": "^3.3.0"
