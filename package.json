@@ -39,6 +39,6 @@
     "mm": "^3.4.0"
   },
   "dependencies": {
-    "detect-python-interpreter": "^1.0.0"
+    "detect-python-interpreter": "^1.0.1"
   }
 }
